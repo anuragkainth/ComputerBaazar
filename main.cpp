@@ -5,10 +5,10 @@ using namespace std;
 //user Class
 class authentication
 {
-public:
+private:
     string username;
     string password;
-private:
+public:
     //Return True if password and username are correct
     bool authenticate()
        {
@@ -32,9 +32,9 @@ struct purchasedetails
 };
 class shop
 {
-public:
-   list<purchasedetails> list_of_purchase;
 private:
+   list<purchasedetails> list_of_purchase;
+public:
     void addNewEntry()
     {
     }
@@ -54,6 +54,7 @@ private:
 
 int main()
 {
-  
+     cout<<"Welcome to the shop"<<endl;
+     
     return 0;
 }
