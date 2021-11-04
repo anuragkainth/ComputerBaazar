@@ -1,7 +1,10 @@
 #include <iostream>
 #include<string>
 #include<list>
-using namespace std;
+#include<conio.h>
+#include "passwordInput.h"
+#include "registerNewUser.h"
+#include "loginuser.h"
 //user Class
 class authentication
 {
@@ -9,11 +12,32 @@ private:
     string username;
     string password;
 public:
-    //Return True if password and username are correct
-    bool authenticate()
-       {
-           return true;
+void login()
+{  //login function
+    int flag=1;
+    while (flag!=0)
+    {
+    cout<<"Enter your username: ";
+    cin>>username;
+    cout<<"Enter your password: ";
+    password=pass();
+    flag=log_in(username,password);
     }
+    
+}
+    void register_user()
+    {     
+         int flag=1;
+        while(flag!=0)
+        {
+            cout<<"Enter username: ";
+            cin>>username;
+            cout<<"Enter password: ";
+            password=pass();
+            flag=reg_user(username,password);
+          
+        }
+ }
 };
 //Structure for order Details
 struct orderDetails
@@ -53,8 +77,42 @@ public:
 //Driver Code
 
 int main()
-{
-     cout<<"Welcome to the shop"<<endl;
-     
-    return 0;
+{     int choice=1;
+     while (choice!=3)
+     { 
+         cout<<"********Welcome to the Computer Bazaar***********"<<endl;
+         cout<<"1.New user(Registered Here)"<<endl;
+         cout<<"2.Existing user(Login Here)"<<endl;
+         cout<<"3.Exit"<<endl;
+         cout<<"Enter your choice"<<endl;
+          cin>>choice;
+         switch(choice)
+         {
+             case 1:
+             {
+                 authentication auth;
+                 auth.register_user();
+                 choice=3;
+                 break;
+             }
+             case 2:
+             {   authentication auth;
+                 auth.login();
+                 cout<<"Existing User"<<endl;
+                 choice=3;
+                 break;
+             }
+             case 3:
+             {
+                 cout<<"Exit"<<endl;
+                 break;
+             }
+             default:
+             {
+                 cout<<"Invalid Choice"<<endl;
+                 break;
+             }
+         }
+     }
+        return 0;   
 }
