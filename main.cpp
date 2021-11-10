@@ -3,8 +3,10 @@
 #include<list>
 #include<conio.h>
 #include "passwordInput.h"
-#include "registerNewUser.h"
 #include "loginuser.h"
+#include "registerNewUser.h"
+#include "constant.hpp"
+
 //user Class
 class authentication
 {
@@ -78,13 +80,15 @@ public:
 
 int main()
 {     int choice=1;
-     while (choice!=3)
+
+     while (choice!=3 && isloggedin==false)
      { 
-         cout<<"********Welcome to the Computer Bazaar***********"<<endl;
+        system("cls");
+         cout<<"**************\e[1mWelcome to the Computer Bazaar\e[0m*****************\n";
          cout<<"1.New user(Registered Here)"<<endl;
          cout<<"2.Existing user(Login Here)"<<endl;
          cout<<"3.Exit"<<endl;
-         cout<<"Enter your choice"<<endl;
+         cout<<"Enter your choice:";
           cin>>choice;
          switch(choice)
          {
@@ -92,19 +96,20 @@ int main()
              {
                  authentication auth;
                  auth.register_user();
-                 choice=3;
+                  isloggedin=true;
                  break;
              }
              case 2:
              {   authentication auth;
                  auth.login();
                  cout<<"Existing User"<<endl;
-                 choice=3;
+                 isloggedin=true;
                  break;
              }
              case 3:
              {
                  cout<<"Exit"<<endl;
+                 exit(0);
                  break;
              }
              default:
@@ -114,5 +119,27 @@ int main()
              }
          }
      }
+          
+        if(isloggedin==true)
+        {        choice=1;
+                while(choice!=6)
+                {
+                 system("cls");
+                cout<<"***************\e[1mWelcome to the Computer Bazaar\e[0m*****************\n";
+                cout<<"1.New Entry"<<endl;
+                cout<<"2.add new item in product list"<<endl;
+                cout<<"2.List of all product"<<endl;
+                cout<<"4.Preview Bill of Existing Record"<<endl;
+                cout<<"3.Searching"<<endl;
+                cout<<"4.Modification"<<endl;
+                cout<<"5.Remove Record"<<endl;
+                cout<<"6.Exit"<<endl;
+                cout<<"Enter your choice:";
+                cin>>choice; 
+                }
+               
+        }
+        }
+
         return 0;   
 }
