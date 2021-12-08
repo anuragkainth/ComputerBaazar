@@ -202,7 +202,7 @@ int main()
          {
              case 1:
              {
-                 cout<<"hi"<<endl;
+                 cout<<"Ashok"<<endl;
                  auth.register_user();
                  choice=3;
                  isAuthenticated=true;
